@@ -9,6 +9,14 @@ build:
 run:
 	GO111MODULE=on go run ./cmd/$(MAIN_DIR)
 
+.PHONY: run-prod
+run-prod:
+	GIN_MODE=release GO111MODULE=on go run ./cmd/$(MAIN_DIR)
+
 .PHONY: start
 start:
 	./bin/$(BIN_NAME)
+
+.PHONY: start-prod
+start-prod:
+	GIN_MODE=release ./bin/$(BIN_NAME)
